@@ -45,7 +45,7 @@
 
 
 <table width="80%" border=0 >
-	<tr><td align="right"><a href="insert_form.jsp"> 글쓰기</a> </td> </tr>
+	<tr><td align="right"><a href="boardCreatForm">글쓰기</a> </td> </tr>
 </table>
 
 <%=application.getRealPath("/") %>
