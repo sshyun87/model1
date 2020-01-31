@@ -21,16 +21,16 @@
  			} 
  		} 
  		//이름은 최소 길이가 5글자 이상인지 체크하고 모두 대문자로 변경하여 출력
- 		txtName = document.getElementById("mbName").value; 
- 		if (txtName.length < 5){ 
- 			alert(txtName + "는 5글자 이상 입력해주세요."); 
+ 		var name = document.getElementById("mbName").value; 
+ 		if (name.length < 5){ 
+ 			alert(name + "는 5글자 이상 입력해주세요."); 
  			return; 
  		} 
- 		result.innerHTML += "<br>" + txtName.toUpperCase(); 
+ 		result.innerHTML += "<br>" + name.toUpperCase(); 
  		
  		//이메일은 "@"와 "."을 포함하는지 체크하여 true/false 결과 출력 (regexp) 
- 		txtEmail = document.getElementById("mbEmail").value; 
- 		regExp = /@+\.+/; 
+ 		var email = document.getElementById("mbEmail").value; 
+ 		regExp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i; ;
  		result.innerHTML += "<br>"+ regExp.test(txtEmail); 
  		 
  		//등록일자는 날짜 형식이 맞는지 체크하고 년도는 2015~2019년도 사이인지 체크하여 결과 출력 
