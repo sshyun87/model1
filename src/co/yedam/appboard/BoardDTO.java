@@ -7,6 +7,7 @@ public class BoardDTO {
 	private String poster;
 	private String subject;
 	private String contents;
+	private byte[] file;
 	
 	
 	public BoardDTO() {
@@ -64,6 +65,15 @@ public class BoardDTO {
 	public String toString() {
 		return "BoardDTO [no=" + no + ", poster=" + poster + ", subject=" + subject + ", contents=" + contents
 				+ ", lastpost=" + lastpost + ", views=" + views + "]";
+	}
+
+	public void setFile(byte[] file) {
+		this.file = file;
+		
+	}
+
+	public byte[] getFile() {
+		return file;
 	}
 	
 	

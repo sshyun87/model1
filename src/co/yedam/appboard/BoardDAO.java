@@ -1,5 +1,6 @@
 package co.yedam.appboard;
 
+import java.sql.Blob;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -59,19 +60,16 @@ public class BoardDAO extends DAO{
 	public BoardDTO selectOne(int no) {
 		BoardDTO dto = new BoardDTO();
 		try {
-			String sql = "select * from board where no=?";
+			String sql = "select * from sys.test_a where code=?";
 			psmt = conn.prepareStatement(sql);
 			psmt.setInt(1, no);
 			rs = psmt.executeQuery();
 			if(rs.next()) {
-				dto.setNo(rs.getInt("no"));
-				dto.setLastpost(rs.getDate("Lastpost"));
-				dto.setContents(rs.getString("Contents"));
-				dto.setPoster(rs.getString("Poster"));
-				dto.setViews(rs.getInt("views"));
-				dto.setSubject(rs.getString("Subject"));
-			}
 			
+				Blob blob = rs.getBlob("BLOBDATA");
+				dto.setFile(blob.getBytes(1,(int) blob.length()));
+				System.out.println("====="+blob.length());
+			}
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
@@ -96,7 +94,7 @@ public class BoardDAO extends DAO{
 			while(rs.next()) {
 				BoardDTO dto = new BoardDTO();
 				dto.setNo(rs.getInt("no"));
-				dto.setLastpost(rs.getDate("Lastpost"));
+				//dto.setLastpost(rs.getDate("Lastpost"));
 				dto.setContents(rs.getString("Contents"));
 				dto.setPoster(rs.getString("Poster"));
 				dto.setViews(rs.getInt("views"));

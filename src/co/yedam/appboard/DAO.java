@@ -21,10 +21,10 @@ import javax.sql.DataSource;
  * 
  */
 public class DAO {
-	Connection conn;
-	PreparedStatement psmt;
-	ResultSet rs;
-	DataSource ds; //커넥션 pool 사용을 위한 데이터 연결 생성 객체
+	protected Connection conn;
+	protected PreparedStatement psmt;
+	protected ResultSet rs;
+	protected DataSource ds; //커넥션 pool 사용을 위한 데이터 연결 생성 객체
 	
 	private String driver = "oracle.jdbc.driver.OracleDriver";
 	private String url = "jdbc:oracle:thin:@localhost:1521:xe";
@@ -40,7 +40,6 @@ public class DAO {
 			e.printStackTrace();
 					}
 	}
-//		
 //		try {
 //			Context initContext = new InitialContext();
 //			Context envContext  = (Context)initContext.lookup("java:/comp/env");
@@ -49,7 +48,6 @@ public class DAO {
 //		} catch (NamingException | SQLException e) {
 //			e.printStackTrace();
 //		}
-//		
 //	}
 	
 	public void close() {
